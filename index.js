@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
 app.get('/data', (req, res) => {
   let user = [{user: "Joe", age: 34}, {user: "Susan", age: 40}]
   res.json(user)
-
 })
 
 app.listen(port, () => {
