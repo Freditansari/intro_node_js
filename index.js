@@ -1,9 +1,14 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+
+const db = require('./configs/mongodb').mongoURI;
+mongoose.connect(db)
+.then(()=>console.log('Monggo db connected')).catch(err=>console.log(err));
 
 
 app.get('/', (req, res) => {
