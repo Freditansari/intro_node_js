@@ -1,1 +1,1 @@
-alert("hello from script")
+// alert("hello from script")

@@ -9,6 +9,13 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
     res.render('pages/index')
 })
+
+app.get('/data', (req, res) => {
+  let user = [{user: "Joe", age: 34}, {user: "Susan", age: 40}]
+  res.json(user)
+
+})
+
 app.listen(port, () => {
   console.log(`App listening at port ${port}`)
 })
