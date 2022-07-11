@@ -21,5 +21,12 @@ app.get('/data', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`App listening at port ${port}`)
+  console.log(`
+  **********************************************
+  App listening at port ${port}
+  You can place env variables in here 
+  or you can register to database server 
+  or logging things up
+  **********************************************
+  `)
 })
