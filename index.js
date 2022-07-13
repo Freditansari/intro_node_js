@@ -5,7 +5,7 @@ const port = 3000
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
-let users = []
+let users = [{name: "Joe", age: 34}, {name: "Susan", age: 40}]
 app.get('/', (req, res) => {
 
     res.render('pages/index', {users})
