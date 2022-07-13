@@ -48,7 +48,11 @@
     
 <main>
     <%- include('../partials/navbar.ejs') %>
-  
+    <% if (users) { %>
+      <h1>users is here!</h1>
+    <% } else { %>
+      <h1>Boohiss no users!</h1>
+    <% } %>
       <div class="container-fluid pb-3">
         <div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr;">
           <div class="bg-light border rounded-3">

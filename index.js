@@ -5,14 +5,14 @@ const port = 3000
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
-
+let users = []
 app.get('/', (req, res) => {
-    res.render('pages/index')
+
+    res.render('pages/index', {users})
 })
 
 app.get('/data', (req, res) => {
-  let user = [{user: "Joe", age: 34}, {user: "Susan", age: 40}]
-  res.json(user)
+  res.json(users)
 })
 
 app.listen(port, () => {
