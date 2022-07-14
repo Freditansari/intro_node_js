@@ -18,17 +18,9 @@ const db = require('./config/mongodb').mongoURI;
 mongoose.connect(db)
 .then(()=>console.log('Mongodb connected')).catch(err=>console.log(err));
 
-// let users = [{name: "Joe", age: 34}, {name: "Susan", age: 40}]
 
 app.use('/api/users', users);
-// app.get('/', (req, res) => {
 
-//     res.render('pages/index', {users})
-// })
-
-// app.get('/data', (req, res) => {
-//   res.json(users)
-// })
 
 app.listen(port, () => {
   console.log(`App listening at port ${port}`)
