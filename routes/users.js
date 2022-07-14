@@ -10,7 +10,6 @@ router.get('/',(req, res)=>{
 })
 
 router.post('/register',(req, res)=>{
-    console.log(req.body)
     User.findOne({ email: req.body.email })
     .then(user =>{
         if(user){
@@ -41,14 +40,15 @@ router.post('/register',(req, res)=>{
     })
 });
 
-// @route   GET api/users/login
+// @route   post api/users/login
 // @desc    Login User / Returning JWT Token
 // @access  Public
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     // todo validation
   
     const email = req.body.email;
     const password = req.body.password;
+
   
     // Find user by email
     User.findOne({ email }).then(user => {
@@ -82,6 +82,12 @@ router.get('/login', (req, res) => {
         }
       });
     });
+  });
+
+  router.get('/login', (req, res) => {
+
+    res.render('pages/login')
+
   });
 
 // router.post()
