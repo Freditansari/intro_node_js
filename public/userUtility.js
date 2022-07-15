@@ -1,3 +1,5 @@
+
+
 document
 .getElementById('registerButton')
 .addEventListener('click', function(e){
@@ -10,8 +12,6 @@ document
         password
     }
     // console.log(login)
-
-    
     fetch("login", {
         method: 'POST', 
         body: JSON.stringify(loginInfo),
@@ -21,7 +21,11 @@ document
     })
     .then(response =>response.json())
     .then(json =>{
-        console.log(json)
+        // console.log(json)
+        // save to localstorage
+        localStorage.setItem("loginToken", JSON.stringify(json) )
+        location.href="/home"
     })
+    
     
 })
