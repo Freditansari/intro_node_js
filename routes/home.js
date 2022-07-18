@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 router.get('/home', (req, res) => {
 
@@ -7,9 +9,9 @@ router.get('/home', (req, res) => {
 
   });
 
-router.get('/homeContent', (req, res) => {
+router.get('/homeContent', passport.authenticate('jwt', { session: false }), (req, res) => {
     let content = `
-    <h3>This is the content</h3>`
+    <h3>This is the secure content</h3>`
 
     let result = {
         result : content
