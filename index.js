@@ -12,21 +12,20 @@ app.use(express.static('public'))
 const users = require('./routes/users');
 const home = require('./routes/home');
 
-// todo connect to mongodb 
 
+// todo explain body parser
 app.use(bodyParser.urlencoded({extended:false})); 
 app.use(bodyParser.json());
 
-
+// connect to mongodb
 const db = require('./config/mongodb').mongoURI;
 mongoose.connect(db)
 .then(()=>console.log('Mongodb connected'))
 .catch(err=>console.log(err));
 
-
+// configure passport
 require('./config/passport')(passport);
-
-// Passport middleware
+// start passport
 app.use(passport.initialize());
 
 
@@ -37,9 +36,6 @@ app.get('/', (req, res) => {
     res.render('pages/index');
 })
 
-// app.get('/data', (req, res) => {
-//   res.json(users)
-// })
 
 app.listen(port, () => {
   console.log(`App listening at port ${port}`)
